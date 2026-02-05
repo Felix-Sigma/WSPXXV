@@ -1,0 +1,17 @@
+h2 Settings
+form method="post" action="/settings"
+  label
+    | Username:
+    input type="text" name="username" value=(@username || '')
+  br
+  label
+    | Notifications:
+    input type="checkbox" name="notifications" checked=(@notifications ? 'checked' : nil)
+  br
+  button type="submit" Save
+
+if @username
+  p
+    | Saved username: #{@username}
+if @notifications != nil
+  p Notifications enabled: #{@notifications}
